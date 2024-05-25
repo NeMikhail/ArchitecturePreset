@@ -487,6 +487,7 @@ MonoBehaviour:
   _dataScriptables:
   - {fileID: 11400000, guid: 78b6f729482794446ac3cfb6c99aef20, type: 2}
   - {fileID: 11400000, guid: a1097cd7ca67c2744a84aca072a58220, type: 2}
+  - {fileID: 11400000, guid: 19bfdcd8dafa2714188cc3890d1dc585, type: 2}
 --- !u!114 &1332572844
 MonoBehaviour:
   m_ObjectHideFlags: 0

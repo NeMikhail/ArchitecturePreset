@@ -35,7 +35,6 @@ namespace Assets.Showcase.Code.LocationModule
             ImpactData impactData = _bulletsImpacts.GetAndRemoveWallImpactData();
             if (impactData != null)
             {
-                Debug.Log(impactData.GetRoundedPosition());
                 TryDestroyWallOnPosition(impactData.GetRoundedPosition(), impactData.BulletConfiguration.Power);
             }
 

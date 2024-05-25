@@ -5,20 +5,31 @@ namespace Showcase.Code.PlayerModule
 {
     public class PlayerModule : BasicModule
     {
+        private InputContainer _input;
+        private PlayerSettings _playerSettings;
+        private PlayerDataContainer _playerData;
+        
         public override void Initialise()
+        {
+            InitializeFields();
+            InitialisePlayerMovement();
+        }
+
+        private void InitializeFields()
         {
             _actions = new Actions();
             Links.InitialiseLinks();
-            InitialisePlayerMovement();
+            _input = Data.GetDataObjectOfType<InputContainer>();
+            _playerSettings = Data.GetDataObjectOfType<PlayerSettings>();
+            _playerData = Data.GetDataObjectOfType<PlayerDataContainer>();
+
         }
 
         private void InitialisePlayerMovement()
         {
             PlayerMovementAction playerMovementAction = new PlayerMovementAction(
-                Data.GetDataObjectOfType<InputContainer>(), Data.GetDataObjectOfType<PlayerSettings>(),
-                Links);
+                _input, _playerSettings, Links, _playerData);
             _actions.Add(playerMovementAction);
-        
         }
     }
 }

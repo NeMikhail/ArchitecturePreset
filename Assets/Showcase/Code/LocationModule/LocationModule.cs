@@ -12,7 +12,6 @@ namespace Assets.Showcase.Code.LocationModule
         public override void Initialise()
         {
             _actions = new Actions();
-            _locationLinks = new LocationLinks();
             Links.InitialiseLinks();
             InitialiseLocationChangeAction();
             InitialiseLocationModifyAction();

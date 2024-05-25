@@ -14,14 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpactDataList:
   - ImpactPosition: {x: 0, y: 0}
-    IsWallImpacted: 1
-    BulletConfiguration: {fileID: 11400000, guid: 2e60343475f703e42be0917a4d0cd5fe, type: 2}
-  - ImpactPosition: {x: 0, y: 0}
     IsWallImpacted: 0
     BulletConfiguration: {fileID: 11400000, guid: 2e60343475f703e42be0917a4d0cd5fe, type: 2}
   - ImpactPosition: {x: 0, y: 0}
     IsWallImpacted: 0
-    BulletConfiguration: {fileID: 11400000, guid: 2e60343475f703e42be0917a4d0cd5fe, type: 2}
-  - ImpactPosition: {x: 10, y: 0}
-    IsWallImpacted: 1
     BulletConfiguration: {fileID: 11400000, guid: 2e60343475f703e42be0917a4d0cd5fe, type: 2}
