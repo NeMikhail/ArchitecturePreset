@@ -6,8 +6,14 @@ namespace MADLEngine
     public class BasicData : MonoBehaviour, IData
     {
         [SerializeField] private List<ScriptableObject> _dataScriptables;
+        private bool _isDebugMode;
 
         public List<ScriptableObject> DataScriptables => _dataScriptables;
+        
+        public void EnableDebugMode()
+        {
+            _isDebugMode = true;
+        }
 
         public T GetDataObjectOfType<T>() where T : ScriptableObject
         {
@@ -20,7 +26,11 @@ namespace MADLEngine
                     return dataObjectOfType;
                 }
             }
-            Debug.Log($"No object of type {typeof(T)} in dataObjects");
+
+            if (_isDebugMode)
+            {
+                Debug.Log($"No object of type {typeof(T)} in dataObjects");
+            }
             return dataObjectOfType;
         }
         
@@ -35,7 +45,7 @@ namespace MADLEngine
                 }
             }
 
-            if (dataObjectsOfType.Count == 0)
+            if (dataObjectsOfType.Count == 0 && _isDebugMode)
             {
                 Debug.Log($"No objects of type {typeof(T)} in dataObjects");
             }

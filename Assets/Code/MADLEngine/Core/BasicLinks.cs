@@ -6,6 +6,7 @@ namespace MADLEngine
     public class BasicLinks : MonoBehaviour, ILinks
     {
         [SerializeField] private List<GameObject> _sceneObjects;
+        private bool _isDebugMode;
 
         public List<GameObject> SceneObjects
         {
@@ -15,6 +16,11 @@ namespace MADLEngine
         public virtual void InitialiseLinks()
         {
             
+        }
+
+        public void EnableDebugMode()
+        {
+            _isDebugMode = true;
         }
 
         public List<GameObject> GetObjectsWithComponent<T>() where T : Component
@@ -28,7 +34,7 @@ namespace MADLEngine
                 }
             }
 
-            if (objectsWithComponent.Count == 0)
+            if (objectsWithComponent.Count == 0 && _isDebugMode)
             {
                 Debug.Log($"No objects with component {typeof(T)} in sceneLinks");
             }
@@ -44,7 +50,11 @@ namespace MADLEngine
                     return sceneObject;
                 }
             }
-            Debug.Log($"No object with component {typeof(T)} in sceneLinks");
+
+            if (_isDebugMode)
+            {
+                Debug.Log($"No object with component {typeof(T)} in sceneLinks");
+            }
             return null;
         }
         
@@ -58,7 +68,7 @@ namespace MADLEngine
                     componentsList.Add(component);
                 }
             }
-            if (componentsList.Count == 0)
+            if (componentsList.Count == 0 && _isDebugMode)
             {
                 Debug.Log($"No objects with component {typeof(T)} in sceneLinks");
             }
@@ -74,7 +84,11 @@ namespace MADLEngine
                     return component;
                 }
             }
-            Debug.Log($"No object with component {typeof(T)} in sceneLinks");
+
+            if (_isDebugMode)
+            {
+                Debug.Log($"No object with component {typeof(T)} in sceneLinks");
+            }
             return null;
         }
         
