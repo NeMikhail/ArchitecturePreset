@@ -1,4 +1,4 @@
-using CADLEngine;
+using MADLEngine;
 using Showcase.Code.InputModule;
 
 namespace Showcase.Code.PlayerModule
@@ -8,6 +8,7 @@ namespace Showcase.Code.PlayerModule
         public override void Initialise()
         {
             _actions = new Actions();
+            Links.InitialiseLinks();
             InitialisePlayerMovement();
         }
 

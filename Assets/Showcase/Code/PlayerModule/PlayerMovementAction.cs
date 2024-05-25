@@ -1,4 +1,4 @@
-using CADLEngine;
+using MADLEngine;
 using Showcase.Code.InputModule;
 using UnityEngine;
 
@@ -20,7 +20,7 @@ namespace Showcase.Code.PlayerModule
     
         public void FixedExecute(float fixedDeltaTime)
         {
-            Vector3 direction = new Vector3(_input.horizontalAxis, _input.verticalAxis, 0);
+            Vector3 direction = new Vector3(_input.HorizontalAxis, _input.VerticalAxis, 0);
             _playerRigidbody.velocity = direction * _speed;
         }
     }

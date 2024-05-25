@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6041ddeea2e1a674fbaf4e668d44b083, type: 3}
+  m_Name: BulletsImpactData
+  m_EditorClassIdentifier: 
+  ImpactDataList:
+  - ImpactPosition: {x: 0, y: 0}
+    IsWallImpacted: 1
+    BulletConfiguration: {fileID: 11400000, guid: 2e60343475f703e42be0917a4d0cd5fe, type: 2}
+  - ImpactPosition: {x: 0, y: 0}
+    IsWallImpacted: 0
+    BulletConfiguration: {fileID: 11400000, guid: 2e60343475f703e42be0917a4d0cd5fe, type: 2}
+  - ImpactPosition: {x: 0, y: 0}
+    IsWallImpacted: 0
+    BulletConfiguration: {fileID: 11400000, guid: 2e60343475f703e42be0917a4d0cd5fe, type: 2}
+  - ImpactPosition: {x: 10, y: 0}
+    IsWallImpacted: 1
+    BulletConfiguration: {fileID: 11400000, guid: 2e60343475f703e42be0917a4d0cd5fe, type: 2}
