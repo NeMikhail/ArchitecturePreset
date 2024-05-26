@@ -1,3 +1,4 @@
+using Assets.Showcase.Code.ShootingModule;
 using UnityEngine;
 
 namespace Showcase.Code.PlayerModule
@@ -7,5 +8,6 @@ namespace Showcase.Code.PlayerModule
     {
         public GameObject PlayerPrefab;
         public float Speed;
+        public BulletConfiguration StartBulletConfiguration;
     }
 }

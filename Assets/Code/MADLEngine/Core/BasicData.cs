@@ -51,5 +51,23 @@ namespace MADLEngine
             }
             return dataObjectsOfType;
         }
+        
+        public List<ScriptableObject> GetDataObjectsOfInterface<T>()
+        {
+            List<ScriptableObject> dataObjectsOfType = new List<ScriptableObject>();
+            foreach (ScriptableObject dataObject in _dataScriptables)
+            {
+                if (dataObject.GetType().IsSubclassOf(typeof(T)))
+                {
+                    dataObjectsOfType.Add(dataObject);
+                }
+            }
+
+            if (dataObjectsOfType.Count == 0 && _isDebugMode)
+            {
+                Debug.Log($"No objects of interface {typeof(T)} in dataObjects");
+            }
+            return dataObjectsOfType;
+        }
     }
 }

@@ -131,5 +131,17 @@ namespace MADLEngine
             return componentsList;
         }
         
+        public GameObject GetObjectInChildsByTag(string tag)
+        {
+            GameObject objectWithTag = SceneObjects.GetObjectByTagInChildren(tag);
+            
+            if (objectWithTag == null && _isDebugMode)
+            {
+                Debug.Log($"No object with tag in sceneLinks childrens");
+            }
+            return objectWithTag;
+        }
+        
+        
     }
 }

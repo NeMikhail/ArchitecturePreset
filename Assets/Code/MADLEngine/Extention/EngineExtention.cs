@@ -106,7 +106,20 @@ namespace MADLEngine.Extention
 
         #endregion
         
-        #region List
+        #region ObjectsList
+
+        public static List<GameObject> GetAllChildsOfObjects(this List<GameObject> list)
+        {
+            List<GameObject> childsList = new List<GameObject>();
+            foreach (GameObject listObject in list)
+            {
+                foreach (Transform childTransform in listObject.transform.GetComponentsInChildren<Transform>())
+                {
+                    childsList.Add(childTransform.gameObject);
+                }
+            }
+            return childsList;
+        }
         
         public static GameObject GetObjectByTag(this List<GameObject> list, string tag)
         {
@@ -120,9 +133,35 @@ namespace MADLEngine.Extention
             return null;
         }
         
+        public static GameObject GetObjectByTagInChildren(this List<GameObject> list, string tag)
+        {
+            List<GameObject> childsList = list.GetAllChildsOfObjects();
+            foreach (GameObject listObject in childsList)
+            {
+                if (listObject.tag == tag)
+                {
+                    return listObject;
+                }
+            }
+            return null;
+        }
+        
         public static GameObject GetObjectByName(this List<GameObject> list, string name)
         {
             foreach (GameObject listObject in list)
+            {
+                if (listObject.name == name)
+                {
+                    return listObject;
+                }
+            }
+            return null;
+        }
+        
+        public static GameObject GetObjectByNameInChildren(this List<GameObject> list, string name)
+        {
+            List<GameObject> childsList = list.GetAllChildsOfObjects();
+            foreach (GameObject listObject in childsList)
             {
                 if (listObject.name == name)
                 {

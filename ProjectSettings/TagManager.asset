@@ -12,6 +12,7 @@ TagManager:
   - PlayerStartPosition
   - EnemyStartPosition
   - BulletStartPosition
+  - BulletsRoot
   layers:
   - Default
   - TransparentFX
