@@ -9,6 +9,9 @@ TagManager:
   - Ground
   - Bushes
   - LocationRoot
+  - PlayerStartPosition
+  - EnemyStartPosition
+  - BulletStartPosition
   layers:
   - Default
   - TransparentFX

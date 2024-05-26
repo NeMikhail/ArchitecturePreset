@@ -6,8 +6,9 @@ using UnityEngine;
 
 namespace Showcase.Code.PlayerModule
 {
-    public class PlayerMovementAction : IAction, IFixedExecute
+    public class PlayerMovementAction : IAction, IInitialisation, IFixedExecute
     {
+        private ILinks _links;
         private Rigidbody2D _playerRigidbody;
         private GameObject _playerObject;
         private InputContainer _input;
@@ -18,11 +19,16 @@ namespace Showcase.Code.PlayerModule
         public PlayerMovementAction(InputContainer input, PlayerSettings playerSettings,
             ILinks links, PlayerDataContainer playerData)
         {
-            _playerRigidbody = links.GetComponentFromObjectsList<Rigidbody2D>();
-            _playerObject = _playerRigidbody.gameObject;
+            _links = links;
             _input = input;
             _playerData = playerData;
             _speed = playerSettings.Speed;
+        }
+        
+        public void Initialisation()
+        {
+            _playerRigidbody = _links.GetComponentInChildsFromObjectsList<Rigidbody2D>();
+            _playerObject = _playerRigidbody.gameObject;
         }
     
         public void FixedExecute(float fixedDeltaTime)

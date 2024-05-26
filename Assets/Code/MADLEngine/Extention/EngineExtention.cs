@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace MADLEngine.Extention
 {
@@ -37,6 +38,12 @@ namespace MADLEngine.Extention
             }
 
             return result;
+        }
+        
+        public static bool TryGetComponentInChildren<T>(this GameObject child, out T component) where T : Component
+        {
+            component = child.GetComponentInChildren<T>();
+            return component != null;
         }
 
         public static GameObject SetName(this GameObject gameObject, string name)
@@ -97,6 +104,82 @@ namespace MADLEngine.Extention
             return gameObject;
         }
 
+        #endregion
+        
+        #region List
+        
+        public static GameObject GetObjectByTag(this List<GameObject> list, string tag)
+        {
+            foreach (GameObject listObject in list)
+            {
+                if (listObject.tag == tag)
+                {
+                    return listObject;
+                }
+            }
+            return null;
+        }
+        
+        public static GameObject GetObjectByName(this List<GameObject> list, string name)
+        {
+            foreach (GameObject listObject in list)
+            {
+                if (listObject.name == name)
+                {
+                    return listObject;
+                }
+            }
+            return null;
+        }
+        
+        public static GameObject GetObjectByTagInComponentsList<T>(this List<T> list, string tag) where T : Component
+        {
+            foreach (T listObject in list)
+            {
+                if (listObject.tag == tag)
+                {
+                    return listObject.gameObject;
+                }
+            }
+            return null;
+        }
+        
+        public static GameObject GetObjectByNameInComponentsList<T>(this List<T> list, string name) where T : Component
+        {
+            foreach (T listObject in list)
+            {
+                if (listObject.name == name)
+                {
+                    return listObject.gameObject;
+                }
+            }
+            return null;
+        }
+        
+        public static T GetComponentByObjectTag<T>(this List<T> list, string tag) where T : Component
+        {
+            foreach (T listObject in list)
+            {
+                if (listObject.tag == tag)
+                {
+                    return listObject;
+                }
+            }
+            return null;
+        }
+        
+        public static T GetComponentByObjectName<T>(this List<T> list, string name) where T : Component
+        {
+            foreach (T listObject in list)
+            {
+                if (listObject.name == name)
+                {
+                    return listObject;
+                }
+            }
+            return null;
+        }
+        
         #endregion
 
         #region Vector according Camera

@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: PlayerDataContainer
   m_EditorClassIdentifier: 
   MovementDirection: 0
+  StartPosition: {x: 0, y: -5.5}
+  IsLocationChanged: 0

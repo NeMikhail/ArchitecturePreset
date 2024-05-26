@@ -1,5 +1,6 @@
 ﻿using Assets.Showcase.Code.ShootingModule;
 using MADLEngine;
+using Showcase.Code.PlayerModule;
 
 namespace Assets.Showcase.Code.LocationModule
 {
@@ -7,14 +8,33 @@ namespace Assets.Showcase.Code.LocationModule
     {
         private LocationLinks _locationLinks;
 
+        private LocationsListConfiguration _locationsListConfiguration;
+        private LocationTilesList _locationTilesList;
+        private ProgressData _progressData;
+        private PlayerDataContainer _playerData;
+        private BulletsImpactData _bulletsImpactData;
+        
+
         public LocationLinks LocationLinks => _locationLinks;
     
         public override void Initialise()
         {
             _actions = new Actions();
             Links.InitialiseLinks();
+            InitializeFields();
             InitialiseLocationChangeAction();
             InitialiseLocationModifyAction();
+        }
+
+        private void InitializeFields()
+        {
+            _locationsListConfiguration = Data.GetDataObjectOfType<LocationsListConfiguration>();
+            _locationTilesList = Data.GetDataObjectOfType<LocationTilesList>();
+            _progressData = Data.GetDataObjectOfType<ProgressData>();
+            _playerData = Data.GetDataObjectOfType<PlayerDataContainer>();
+            _bulletsImpactData = Data.GetDataObjectOfType<BulletsImpactData>();
+
+
         }
     
         public void ChangeLocationLinks(LocationLinks links)
@@ -28,15 +48,14 @@ namespace Assets.Showcase.Code.LocationModule
         private void InitialiseLocationChangeAction()
         {
             LocationChangeActions locationChangeAction = new LocationChangeActions(this,
-                Data.GetDataObjectOfType<LocationsListConfiguration>(), Data.GetDataObjectOfType<ProgressData>());
+                _locationsListConfiguration, _progressData, _playerData);
             _actions.Add(locationChangeAction);
         }
     
         private void InitialiseLocationModifyAction()
         {
             LocationModifyActions locationModifyActions =
-                new LocationModifyActions(this,
-                    Data.GetDataObjectOfType<LocationTilesList>(), Data.GetDataObjectOfType<BulletsImpactData>());
+                new LocationModifyActions(this, _locationTilesList, _bulletsImpactData);
             _actions.Add(locationModifyActions);
         }
 

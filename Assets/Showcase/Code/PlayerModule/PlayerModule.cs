@@ -1,5 +1,6 @@
 using MADLEngine;
 using Showcase.Code.InputModule;
+using UnityEngine;
 
 namespace Showcase.Code.PlayerModule
 {
@@ -12,6 +13,7 @@ namespace Showcase.Code.PlayerModule
         public override void Initialise()
         {
             InitializeFields();
+            InitialisePlayerSpawn();
             InitialisePlayerMovement();
         }
 
@@ -23,6 +25,13 @@ namespace Showcase.Code.PlayerModule
             _playerSettings = Data.GetDataObjectOfType<PlayerSettings>();
             _playerData = Data.GetDataObjectOfType<PlayerDataContainer>();
 
+        }
+
+        private void InitialisePlayerSpawn()
+        {
+            PlayerSpawnAndPositionChangeAction playerSpawnAndPositionChangeAction =
+                new PlayerSpawnAndPositionChangeAction(_playerSettings, _playerData, Links);
+            _actions.Add(playerSpawnAndPositionChangeAction);
         }
 
         private void InitialisePlayerMovement()

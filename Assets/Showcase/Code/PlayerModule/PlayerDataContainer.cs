@@ -7,5 +7,7 @@ namespace Showcase.Code.PlayerModule
     public class PlayerDataContainer : ScriptableObject
     {
         public Direction MovementDirection;
+        public Vector2 StartPosition;
+        public bool IsLocationChanged;
     }
 }

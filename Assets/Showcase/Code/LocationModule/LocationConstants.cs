@@ -10,5 +10,7 @@ namespace Assets.Showcase.Code.LocationModule
         public static string BASIC_WALL_NAME = "000_WallTile1";
         public static string REINFORCED_WALL_NAME = "001_WallTile2";
         public static string UNBREAKABLE_WALL_NAME = "005_BorderWallTile";
+
+        public static string PLAYER_POSITION_TAG = "PlayerStartPosition";
     }
 }

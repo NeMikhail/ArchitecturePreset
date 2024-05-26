@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using MADLEngine;
+using MADLEngine.Extention;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -8,23 +9,22 @@ namespace Assets.Showcase.Code.LocationModule
     public class LocationLinks : BasicLinks
     {
         private List<Tilemap> _tilemapsList;
+        private List<Transform> _transformsList;
 
         public override void InitialiseLinks()
         {
             _tilemapsList = GetComponentsFromObjectsList<Tilemap>();
+            _transformsList = GetComponentsFromObjectsList<Transform>();
         }
-    
+
         private Tilemap GetTilemapByTag(string tag)
         {
-            foreach (Tilemap tilemap in _tilemapsList)
+            Tilemap tilemap = _tilemapsList.GetComponentByObjectTag<Tilemap>(tag);
+            if (tilemap == null)
             {
-                if (tilemap.gameObject.tag == tag)
-                {
-                    return tilemap;
-                }
+                Debug.Log($"No tilemap with tag {tag} found");
             }
-            Debug.Log($"No tilemap with tag {tag} found");
-            return null;
+            return tilemap;
         }
     
         public Tilemap GetWallsTilemap()
@@ -50,6 +50,17 @@ namespace Assets.Showcase.Code.LocationModule
         public Grid GetGrid()
         {
             return GetComponentFromObjectsList<Grid>();
+        }
+
+        public Transform GetPlayerStartPositionTransform()
+        {
+            Transform playerStartPositionTransform =
+                _transformsList.GetComponentByObjectTag(LocationConstants.PLAYER_POSITION_TAG);
+            if (playerStartPositionTransform == null)
+            {
+                Debug.Log($"No PlayerStartPositionTransform found");
+            }
+            return playerStartPositionTransform;
         }
     }
 }

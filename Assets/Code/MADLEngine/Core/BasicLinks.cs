@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MADLEngine.Extention;
 using UnityEngine;
 
 namespace MADLEngine
@@ -90,6 +91,44 @@ namespace MADLEngine
                 Debug.Log($"No object with component {typeof(T)} in sceneLinks");
             }
             return null;
+        }
+        
+        public T GetComponentInChildsFromObjectsList<T>() where T : Component
+        {
+            foreach (GameObject sceneObject in _sceneObjects)
+            {
+                if (sceneObject.TryGetComponentInChildren<T>(out T component))
+                {
+                    return component;
+                }
+            }
+
+            if (_isDebugMode)
+            {
+                Debug.Log($"No object with component {typeof(T)} in sceneLinks childrens");
+            }
+            return null;
+        }
+        
+        public List<T> GetComponentsInChildsFromObjectsList<T>() where T : Component
+        {
+            List<T> componentsList = new List<T>();
+            foreach (GameObject sceneObject in _sceneObjects)
+            {
+                if (sceneObject.TryGetComponentInChildren<T>(out T firstComponent))
+                {
+                    T[] components = sceneObject.GetComponentsInChildren<T>();
+                    foreach (T component in components)
+                    {
+                        componentsList.Add(component);
+                    }
+                }
+            }
+            if (componentsList.Count == 0 && _isDebugMode)
+            {
+                Debug.Log($"No object with component {typeof(T)} in sceneLinks childrens");
+            }
+            return componentsList;
         }
         
     }

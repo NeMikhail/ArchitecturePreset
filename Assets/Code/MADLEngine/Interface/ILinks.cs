@@ -13,6 +13,8 @@ namespace MADLEngine
         public GameObject GetObjectWithComponent<T>() where T : Component;
         public List<T> GetComponentsFromObjectsList<T>() where T : Component;
         public T GetComponentFromObjectsList<T>() where T : Component;
+        public T GetComponentInChildsFromObjectsList<T>() where T : Component;
+        public List<T> GetComponentsInChildsFromObjectsList<T>() where T : Component;
 
     }
 }
