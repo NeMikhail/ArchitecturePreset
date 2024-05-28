@@ -251,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dataScriptables:
   - {fileID: 11400000, guid: 99b3546474b09124e8dc2a29237e482d, type: 2}
-  - {fileID: 11400000, guid: 19bfdcd8dafa2714188cc3890d1dc585, type: 2}
+  - {fileID: 11400000, guid: a93ddc672d66e774d8e691c936a83b82, type: 2}
 --- !u!114 &383929706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +280,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _links: {fileID: 383929706}
   _data: {fileID: 383929705}
-  SpawnedObjectsLinks: {fileID: 1915554704}
 --- !u!1 &679102853
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,6 +570,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 78b6f729482794446ac3cfb6c99aef20, type: 2}
   - {fileID: 11400000, guid: a1097cd7ca67c2744a84aca072a58220, type: 2}
   - {fileID: 11400000, guid: 19bfdcd8dafa2714188cc3890d1dc585, type: 2}
+  - {fileID: 11400000, guid: a93ddc672d66e774d8e691c936a83b82, type: 2}
 --- !u!114 &1332572844
 MonoBehaviour:
   m_ObjectHideFlags: 0

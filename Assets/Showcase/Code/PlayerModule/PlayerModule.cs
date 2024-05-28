@@ -1,3 +1,4 @@
+using Assets.Showcase.Code.ShootingModule;
 using MADLEngine;
 using Showcase.Code.InputModule;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Showcase.Code.PlayerModule
         private PlayerSettings _playerSettings;
         private PlayerDataContainer _playerData;
         private PlayerLinks _playerLinks;
+        private ShootersDataContainersList _shootersDataContainersList;
         
         public override void Initialise()
         {
@@ -29,6 +31,7 @@ namespace Showcase.Code.PlayerModule
             _input = Data.GetDataObjectOfType<InputContainer>();
             _playerSettings = Data.GetDataObjectOfType<PlayerSettings>();
             _playerData = Data.GetDataObjectOfType<PlayerDataContainer>();
+            _shootersDataContainersList = Data.GetDataObjectOfType<ShootersDataContainersList>();
 
         }
 
@@ -48,8 +51,8 @@ namespace Showcase.Code.PlayerModule
         
         private void InitialisePlayerShooting()
         {
-            PlayerShootingAction playerShootingAction = new PlayerShootingAction(_input, _playerData, _playerSettings,
-                _playerLinks);
+            PlayerShootingAction playerShootingAction = new PlayerShootingAction(_input, _shootersDataContainersList,
+                _playerSettings, _playerData, _playerLinks);
             _actions.Add(playerShootingAction);
         }
     }

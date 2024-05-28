@@ -22,17 +22,19 @@ public class ShootingAction : IAction, IInitialisation, IFixedExecute
 
     public void FixedExecute(float fixedDeltaTime)
     {
-        List<IShootingDataContainer> shootingDataContainers = _shootingData.GetShootingDataContainers();
-        Debug.Log(shootingDataContainers.Count);
-        if (shootingDataContainers.Count != 0)
-        {
-            TryShootAllShooters(shootingDataContainers);
-        }
-        
+        List<ShootingDataContainer> enemyShootingDataContainers = _shootingData.GetEnemyShootingDataContainers();
+        ShootingDataContainer playerShootingDataContainer = _shootingData.GetPlayerShootingData();
+        TryShootAllShooters(enemyShootingDataContainers, playerShootingDataContainer);
     }
 
-    private void TryShootAllShooters(List<IShootingDataContainer> shootingDataContainers)
+    private void TryShootAllShooters(List<ShootingDataContainer> shootingDataContainers, 
+        ShootingDataContainer playerShootingDataContainer)
     {
+        if (playerShootingDataContainer.IsShooting)
+        {
+            Shoot(playerShootingDataContainer);
+            playerShootingDataContainer.IsShooting = false;
+        }
         foreach (IShootingDataContainer shootingDataContainer in shootingDataContainers)
         {
             if (shootingDataContainer.IsShooting)

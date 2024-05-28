@@ -22,7 +22,7 @@ namespace Showcase.Code.PlayerModule
             _links = links;
             _input = input;
             _playerData = playerData;
-            _speed = playerSettings.Speed;
+            _speed = playerSettings.BasicSpeed;
         }
         
         public void Initialisation()

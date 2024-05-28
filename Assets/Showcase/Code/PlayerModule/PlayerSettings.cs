@@ -7,7 +7,9 @@ namespace Showcase.Code.PlayerModule
     public class PlayerSettings : ScriptableObject
     {
         public GameObject PlayerPrefab;
-        public float Speed;
+        public float BasicSpeed;
         public BulletConfiguration StartBulletConfiguration;
+        public float BasicShootingCooldown;
+
     }
 }
