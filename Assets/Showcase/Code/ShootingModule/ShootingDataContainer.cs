@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Assets.Showcase.Code.ShootingModule
 {
     [Serializable]
-    public class ShootingDataContainer : IShootingDataContainer
+    public class ShootingDataContainer
     {
         [SerializeField] private bool _isShooting;
         [SerializeField] private BulletConfiguration _bulletConfiguration;

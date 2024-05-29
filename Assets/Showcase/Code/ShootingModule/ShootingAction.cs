@@ -37,7 +37,7 @@ public class ShootingAction : IAction, IInitialisation, IFixedExecute
             Shoot(playerShootingDataContainer);
             playerShootingDataContainer.IsShooting = false;
         }
-        foreach (IShootingDataContainer shootingDataContainer in shootingDataContainers)
+        foreach (ShootingDataContainer shootingDataContainer in shootingDataContainers)
         {
             if (shootingDataContainer.IsShooting)
             {
@@ -47,7 +47,7 @@ public class ShootingAction : IAction, IInitialisation, IFixedExecute
         }
     }
 
-    private void Shoot(IShootingDataContainer shootingDataContainer)
+    private void Shoot(ShootingDataContainer shootingDataContainer)
     {
         Vector3 rotationEuler = GetBulletRotation(shootingDataContainer.BulletDirection);
         Quaternion rotation = Quaternion.Euler(rotationEuler);
