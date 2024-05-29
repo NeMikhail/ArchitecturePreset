@@ -35,27 +35,30 @@ namespace Assets.Showcase.Code.LocationModule
             ImpactData impactData = _bulletsImpacts.GetAndRemoveWallImpactData();
             if (impactData != null)
             {
-                TryDestroyWallOnPosition(impactData.GetRoundedPosition(), impactData.BulletConfiguration.Power);
+                TryDestroyWallOnPosition(impactData.GetImpactedTilePosition(), impactData.BulletData.Power);
             }
-
         }
 
-        private void TryDestroyWallOnPosition(Vector2Int position, int power)
+        private bool TryDestroyWallOnPosition(Vector2Int position, int power)
         {
             Tilemap wallsTilemap = _locationModule.LocationLinks.GetWallsTilemap();
             Tile wallTile = wallsTilemap.GetTile<Tile>((Vector3Int)position);
             if (wallTile == _basicWallTile && power > 0)
             {
                 wallsTilemap.SetTile((Vector3Int)position, null);
+                return true;
             }
             else if (wallTile == _reinforcedWallTile && power > 1)
             {
                 wallsTilemap.SetTile((Vector3Int)position, null);
+                return true;
             }
             else if (wallTile == _unbreakableWallTile)
             {
-            
+                return true;
             }
+
+            return false;
         }
     }
 }
