@@ -5,6 +5,8 @@ namespace MADLEngine
 {
     public class Scene3DActor : MonoBehaviour
     {
+        public Rigidbody Rigidbody;
+        
         public Action<Scene3DActor, Collider> TriggerEnter;
         public Action<Scene3DActor, Collider> TriggerExit;
         public Action<Scene3DActor, Collider> TriggerStay;
@@ -14,6 +16,15 @@ namespace MADLEngine
         public Action<Scene3DActor> BecameVisible;
         public Action<Scene3DActor> BecameInvisible;
         
+        public Vector3 GetPosition()
+        {
+            return gameObject.transform.position;
+        }
+
+        public void Destroy()
+        {
+            GameObject.Destroy(gameObject);
+        }
         private void OnTriggerEnter(Collider other)
         {
             TriggerEnter?.Invoke(this, other);
