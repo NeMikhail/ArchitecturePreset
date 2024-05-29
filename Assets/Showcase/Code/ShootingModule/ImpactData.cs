@@ -8,7 +8,13 @@ namespace Assets.Showcase.Code.ShootingModule
     {
         public Vector2 ImpactPosition;
         public bool IsWallImpacted;
-        public BulletConfiguration BulletConfiguration;
+        public BulletData BulletConfiguration;
+
+        public ImpactData(Vector2 impactPosition, BulletData bulletConfiguration)
+        {
+            ImpactPosition = impactPosition;
+            BulletConfiguration = bulletConfiguration;
+        }
 
         public Vector2Int GetRoundedPosition()
         {

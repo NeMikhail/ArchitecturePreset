@@ -29,6 +29,7 @@ namespace Showcase.Code.PlayerModule
         {
             _playerRigidbody = _links.GetComponentInChildsFromObjectsList<Rigidbody2D>();
             _playerObject = _playerRigidbody.gameObject;
+            _playerData.MovementDirection = Direction.Up;
         }
     
         public void FixedExecute(float fixedDeltaTime)
@@ -50,6 +51,7 @@ namespace Showcase.Code.PlayerModule
         {
             float x = _input.HorizontalAxis;
             float y = _input.VerticalAxis;
+            Direction oldDirection = _playerData.MovementDirection;
             if (x != 0 || y != 0)
             {
                 _isMoving = true;
@@ -78,7 +80,7 @@ namespace Showcase.Code.PlayerModule
             }
             else
             {
-                return Direction.None;
+                return oldDirection;
             }
 
         }

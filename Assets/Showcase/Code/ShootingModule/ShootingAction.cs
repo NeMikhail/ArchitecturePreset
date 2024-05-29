@@ -9,11 +9,13 @@ public class ShootingAction : IAction, IInitialisation, IFixedExecute
 {
     private ShootingData _shootingData;
     private Transform _bulletsRootTransform;
+    private BulletsData _bulletsData;
 
-    public ShootingAction(ShootingData shootingData, ILinks links)
+    public ShootingAction(ShootingData shootingData, ILinks links, BulletsData bulletsData)
     {
         _shootingData = shootingData;
         _bulletsRootTransform = links.SceneObjects.GetObjectByTag(ShootingConstants.BULLETS_ROOT_TAG).transform;
+        _bulletsData = bulletsData;
     }
     public void Initialisation()
     {
@@ -52,6 +54,11 @@ public class ShootingAction : IAction, IInitialisation, IFixedExecute
         Vector3 position = shootingDataContainer.BulletSpawnPosition;
         GameObject bulletObject = GameObject.Instantiate(
             shootingDataContainer.BulletConfiguration.BulletPrefab, position, rotation, _bulletsRootTransform);
+        Scene2DActor bulletActor = bulletObject.GetComponent<Scene2DActor>();
+        BulletConfiguration bulletConfiguration = shootingDataContainer.BulletConfiguration;
+        BulletData bulletData = new BulletData(bulletConfiguration.Power, bulletConfiguration.Speed,
+            shootingDataContainer.BulletDirection);
+        _bulletsData.AddBullet(bulletActor, bulletData);
     }
 
     private Vector3 GetBulletRotation(Direction direction)

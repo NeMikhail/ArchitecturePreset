@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Numerics;
+using UnityEditorInternal;
 using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
 
 namespace MADLEngine
 {
     public class Scene2DActor : MonoBehaviour
     {
+        public Rigidbody2D Rigidbody;
+
         public Action<Scene2DActor, Collider2D> TriggerEnter;
         public Action<Scene2DActor, Collider2D> TriggerExit;
         public Action<Scene2DActor, Collider2D> TriggerStay;
@@ -13,6 +18,16 @@ namespace MADLEngine
         public Action<Scene2DActor, Collision2D> CollisionStay;
         public Action<Scene2DActor> BecameVisible;
         public Action<Scene2DActor> BecameInvisible;
+
+        public Vector2 GetPosition()
+        {
+            return (Vector2)gameObject.transform.position;
+        }
+
+        public void Destroy()
+        {
+            GameObject.Destroy(gameObject);
+        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {

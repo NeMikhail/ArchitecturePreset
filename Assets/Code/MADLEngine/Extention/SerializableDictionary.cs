@@ -40,8 +40,13 @@ namespace MADLEngine.Extention
             var element = new DictionaryElement<TKey, TValue>();
             element.Key = key;
             element.Value = value;
-
             Add(element);
+        }
+
+        public void Remove(TKey key)
+        {
+            DictionaryElement<TKey, TValue> element = GetElementByKey(key);
+            Dictionary.Remove(element);
         }
 
         public DictionaryElement<TKey, TValue> GetElementByKey(TKey key)
@@ -122,6 +127,28 @@ namespace MADLEngine.Extention
             }
 
             return keys;
+        }
+
+        private List<TValue> GetAllValues()
+        {
+            List<TValue> values = new List<TValue>();
+            foreach (DictionaryElement<TKey, TValue> element in Dictionary)
+            {
+                values.Add(element.Value);
+            }
+
+            return values;
+        }
+
+        public bool IsContainsKey(TKey key)
+        {
+            return GetAllKeys().Contains(key);
+        }
+        
+        public bool IsContainsValue(TValue value)
+        {
+            
+            return GetAllValues().Contains(value);
         }
 
         public void Serialize(TextWriter writer)

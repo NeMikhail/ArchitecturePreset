@@ -7,5 +7,6 @@ namespace Assets.Showcase.Code.ShootingModule
     {
         public GameObject BulletPrefab;
         public int Power;
+        public float Speed;
     }
 }

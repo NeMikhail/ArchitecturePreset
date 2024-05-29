@@ -10293,7 +10293,7 @@ GameObject:
   - component: {fileID: 1167915095111764448}
   - component: {fileID: 6824557722131386519}
   - component: {fileID: 2477471162148919360}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Water
   m_TagString: Water
   m_Icon: {fileID: 0}
