@@ -50,7 +50,6 @@ namespace Assets.Showcase.Code.ShootingModule
                         (int)Math.Ceiling(position.y) - 1);
                     break;
             }
-            Debug.Log($"{roundedPosition.x} {roundedPosition.y}");
             return roundedPosition;
         }
     }
