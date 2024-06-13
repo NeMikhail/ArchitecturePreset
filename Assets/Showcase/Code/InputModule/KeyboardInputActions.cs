@@ -1,4 +1,4 @@
-using CADLEngine;
+using MADLEngine;
 using UnityEngine;
 
 namespace Showcase.Code.InputModule
@@ -16,8 +16,10 @@ namespace Showcase.Code.InputModule
     
         public void Execute(float deltaTime)
         {
-            _inputContainer.horizontalAxis = Input.GetAxis("Horizontal");
-            _inputContainer.verticalAxis = Input.GetAxis("Vertical");
+            _inputContainer.HorizontalAxis = Input.GetAxis("Horizontal");
+            _inputContainer.VerticalAxis = Input.GetAxis("Vertical");
+            _inputContainer.WasLeftMouseButtonDown = Input.GetKey(KeyCode.Mouse0);
+            _inputContainer.WasRightMouseButtonDown = Input.GetKey(KeyCode.Mouse1);
         }
 
         public void Cleanup()
@@ -27,7 +29,7 @@ namespace Showcase.Code.InputModule
 
         private void InputDebug()
         {
-            Debug.Log($"H : {_inputContainer.horizontalAxis}, V : {_inputContainer.verticalAxis}" );
+            Debug.Log($"H : {_inputContainer.HorizontalAxis}, V : {_inputContainer.VerticalAxis}" );
         }
     }
 }
