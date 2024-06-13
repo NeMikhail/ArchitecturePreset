@@ -7,19 +7,17 @@ namespace Showcase.Code.PlayerModule
     {
         private PlayerDataContainer _playerData;
         private ILinks _links;
-        private SpawnedObjectsLinks _spawnedObjectsLinks;
         private GameObject _playerObjectPrefab;
         private GameObject _playerObject;
         private Transform _playerMovableObjectTransform;
         
         
         public PlayerSpawnAndPositionChangeAction(PlayerSettings playerSettings, PlayerDataContainer playerData,
-            ILinks links, SpawnedObjectsLinks spawnedObjectsLinks)
+            ILinks links)
         {
             _playerObjectPrefab = playerSettings.PlayerPrefab;
             _playerData = playerData;
             _links = links;
-            _spawnedObjectsLinks = spawnedObjectsLinks;
         }
 
         public void Initialisation()
@@ -41,7 +39,6 @@ namespace Showcase.Code.PlayerModule
         {
             _playerObject = GameObject.Instantiate(_playerObjectPrefab);
             _links.SceneObjects.Add(_playerObject);
-            _spawnedObjectsLinks.SceneObjects.Add(_playerObject);
             _playerMovableObjectTransform = _playerObject.GetComponentInChildren<Rigidbody2D>().gameObject.transform;
         }
 

@@ -7,8 +7,6 @@ namespace Showcase.Code.PlayerModule
 {
     public class PlayerModule : BasicModule
     {
-        public SpawnedObjectsLinks SpawnedObjectsLinks;
-        
         private InputContainer _input;
         private PlayerSettings _playerSettings;
         private PlayerDataContainer _playerData;
@@ -38,7 +36,7 @@ namespace Showcase.Code.PlayerModule
         private void InitialisePlayerSpawn()
         {
             PlayerSpawnAndPositionChangeAction playerSpawnAndPositionChangeAction =
-                new PlayerSpawnAndPositionChangeAction(_playerSettings, _playerData, Links, SpawnedObjectsLinks);
+                new PlayerSpawnAndPositionChangeAction(_playerSettings, _playerData, Links);
             _actions.Add(playerSpawnAndPositionChangeAction);
         }
 

@@ -486,7 +486,6 @@ Transform:
   - {fileID: 1171563155}
   - {fileID: 374546819}
   - {fileID: 383929704}
-  - {fileID: 1915554703}
   m_Father: {fileID: 1761768411}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1250662574
@@ -553,7 +552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _links: {fileID: 1332572844}
   _data: {fileID: 1332572843}
-  SpawnedObjectsLinks: {fileID: 1915554704}
+  SpawnedObjectsLinks: {fileID: 0}
 --- !u!114 &1332572843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,51 +662,6 @@ Transform:
   - {fileID: 2009171815}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1915554702
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1915554703}
-  - component: {fileID: 1915554704}
-  m_Layer: 0
-  m_Name: LinksBrigeModule
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1915554703
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915554702}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1215302590}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1915554704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915554702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c9c4cd4dd025e94389b6ff3156784a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sceneObjects: []
 --- !u!1 &2009171813
 GameObject:
   m_ObjectHideFlags: 0
