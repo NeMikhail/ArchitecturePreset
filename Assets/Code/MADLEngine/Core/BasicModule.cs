@@ -20,7 +20,10 @@ namespace MADLEngine
         public virtual void Initialise()
         {
             _actions = new Actions();
-            _links.InitialiseLinks();
+            if (_links != null)
+            {
+                _links.InitialiseLinks();
+            }
         }
     }
 }
