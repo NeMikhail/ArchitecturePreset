@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MADLEngine.Extention
@@ -233,7 +234,7 @@ namespace MADLEngine.Extention
         {
             var weight = camera.orthographicSize * 2 * camera.aspect / 2;
             var height = camera.orthographicSize;
-            var randomX = Random.Range(-1 * weight + offsetX, weight - offsetX);
+            var randomX = UnityEngine.Random.Range(-1 * weight + offsetX, weight - offsetX);
             var vector = new Vector2(randomX, Mathf.Abs(height) - offsetY);
             return vector;
         }
@@ -273,6 +274,27 @@ namespace MADLEngine.Extention
         {
             var down = camera.transform.localPosition.z / 2 + offset;
             return down;
+        }
+
+        #endregion
+
+        #region String
+
+        public static List<string> SplitBy(this string str, int chunkLength)
+        {
+            List<string> strings = new List<string>();
+            if (String.IsNullOrEmpty(str)) throw new ArgumentException();
+            if (chunkLength < 1) throw new ArgumentException();
+
+            for (int i = 0; i < str.Length; i += chunkLength)
+            {
+                if (chunkLength + i > str.Length)
+                    chunkLength = str.Length - i;
+
+                strings.Add(str.Substring(i, chunkLength));
+            }
+
+            return strings;
         }
 
         #endregion

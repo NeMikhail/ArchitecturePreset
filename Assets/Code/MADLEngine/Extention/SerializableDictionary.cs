@@ -118,7 +118,7 @@ namespace MADLEngine.Extention
             return serializableDictionary;
         }
 
-        private List<TKey> GetAllKeys()
+        public List<TKey> GetAllKeys()
         {
             List<TKey> keys = new List<TKey>();
             foreach (DictionaryElement<TKey, TValue> element in Dictionary)
@@ -129,7 +129,7 @@ namespace MADLEngine.Extention
             return keys;
         }
 
-        private List<TValue> GetAllValues()
+        public List<TValue> GetAllValues()
         {
             List<TValue> values = new List<TValue>();
             foreach (DictionaryElement<TKey, TValue> element in Dictionary)
