@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Numerics;
-using UnityEditorInternal;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 
