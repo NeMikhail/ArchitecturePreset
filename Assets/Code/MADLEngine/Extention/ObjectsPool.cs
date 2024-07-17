@@ -10,6 +10,9 @@ namespace MADLEngine
         private readonly GameObject _prefab;
         private readonly Transform _rootPool;
 
+        public Transform Root { get => _rootPool; }
+        public GameObject Prefab { get => _prefab; }
+
         public ObjectsPool(GameObject prefab)
         {
             _prefab = prefab;
@@ -30,12 +33,30 @@ namespace MADLEngine
             go.SetActive(false);
         }
 
+        public GameObject Pop(Vector3 position)
+        {
+            GameObject go;
+            if (_stack.Count == 0)
+            {
+                go = Object.Instantiate(_prefab, position, Quaternion.identity, _rootPool);
+            }
+            else
+            {
+                go = _stack.Pop();
+                go.transform.position = position;
+                go.transform.rotation = Quaternion.identity;
+
+            }
+            go.SetActive(true);
+            return go;
+        }
+
         public GameObject Pop(Vector3 position, Quaternion rotation)
         {
             GameObject go;
             if (_stack.Count == 0)
             {
-                go = Object.Instantiate(_prefab, position, rotation);
+                go = Object.Instantiate(_prefab, position, rotation, _rootPool);
             }
             else
             {
