@@ -11,7 +11,8 @@ namespace MADLEngine.Extention
     public class SerializableDictionary<TKey, TValue>
     {
         [XmlArray("Elements"), XmlArrayItem("Element")]
-        public List<DictionaryElement<TKey, TValue>> Dictionary;
+        public List<DictionaryElement<TKey, TValue>> Dictionary = 
+            new List<DictionaryElement<TKey, TValue>>();
 
         public int Length => Dictionary.Count;
         public TValue this[TKey key]
