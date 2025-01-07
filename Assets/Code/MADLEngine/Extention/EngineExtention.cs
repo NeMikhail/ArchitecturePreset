@@ -26,6 +26,18 @@ namespace MADLEngine.Extention
             return v;
         }
 
+        public static float GetDistanceBetweenPoints(Vector2 pointA, Vector2 pointB)
+        {
+            float distance = Mathf.Sqrt(Mathf.Pow((pointB.x - pointA.x), 2) + Mathf.Pow((pointB.y - pointA.y), 2));
+            return distance;
+        }
+
+        public static float GetDistanceBetweenPoints(Vector3 pointA, Vector3 pointB)
+        {
+            float distance = Mathf.Sqrt(Mathf.Pow((pointB.x - pointA.x), 2) + Mathf.Pow((pointB.y - pointA.y), 2) + Mathf.Pow((pointB.z - pointA.z), 2));
+            return distance;
+        }
+
         #endregion
 
         #region Components
@@ -207,7 +219,7 @@ namespace MADLEngine.Extention
             }
             return null;
         }
-        
+
         public static T GetComponentByObjectName<T>(this List<T> list, string name) where T : Component
         {
             foreach (T listObject in list)
@@ -219,7 +231,18 @@ namespace MADLEngine.Extention
             }
             return null;
         }
-        
+
+        public static int CountActiveChild(this Transform transform)
+        {
+            int k = 0;
+            foreach (Transform child in transform)
+            {
+                if (child.gameObject.activeSelf)
+                    k++;
+            }
+            return k;
+        }
+
         #endregion
 
         #region Vector according Camera

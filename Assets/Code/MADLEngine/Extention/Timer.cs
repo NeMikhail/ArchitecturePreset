@@ -20,6 +20,22 @@ namespace MADLEngine.Extention
             _startWaitTime = Time.time;
             _duration = duration;
         }
+        public Timer(float duration, bool withDelay = true)
+        {
+            if (withDelay)
+            {
+                IsWaiting = true;
+                _startWaitTime = Time.time;
+                _duration = duration;
+            }
+            else
+            {
+                IsWaiting = false;
+                _startWaitTime = Time.time - duration;
+                _duration = duration;
+            }
+
+        }
 
         public bool Wait()
         {
